@@ -11,7 +11,7 @@ require("nvim-tree").setup({
 		group_empty = true,
 	},
 	filters = {
-		dotfiles = true,
+		dotfiles = false,
 	},
 	update_focused_file = {
 		enable = true,
@@ -21,9 +21,10 @@ require("nvim-tree").setup({
 
 local api = require("nvim-tree.api")
 vim.keymap.set("n", "<leader>tt", api.tree.toggle)
+vim.keymap.set("n", "<C-o>", api.tree.change_root_to_node)
 
-vim.keymap.set("n", "<leader>fc", api.fs.create)
-vim.keymap.set("n", "<leader>fd", api.fs.remove)
+--vim.keymap.set("n", "<leader>fc", api.fs.create)
+--vim.keymap.set("n", "<leader>fd", api.fs.remove)
 
-vim.keymap.set("n", "<leader>fo", api.node.open.edit)
-vim.keymap.set("n", "<leader>fvo", api.node.open.vertical)
+--vim.keymap.set("n", "<leader>fo", api.node.open.edit)
+--vim.keymap.set("n", "<leader>fvo", api.node.open.vertical)
