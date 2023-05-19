@@ -23,3 +23,47 @@ vim.keymap.set("i", "<C-c>", "<Esc>")
 vim.keymap.set("n", "<leader>fo", function()
     vim.lsp.buf.format()
 end)
+
+
+-- LSP
+local function nkeymap(k, map)
+    vim.api.nvim_set_keymap('n', k, map, { noremap = true })
+end
+
+nkeymap('gd', ':lua vim.lsp.buf.definition()<cr>')
+nkeymap('gD', ':lua vim.lsp.buf.declaration()<cr>')
+nkeymap('gi', ':lua vim.lsp.buf.implementation()<cr>')
+nkeymap('gs', ':lua vim.lsp.buf.document_symbol()<cr>')
+nkeymap('gS', ':lua vim.lsp.buf.workspace_symbol()<cr>')
+nkeymap('gr', ':lua vim.lsp.buf.references()<cr>')
+nkeymap('gt', ':lua vim.lsp.buf.type_definition()<cr>')
+nkeymap('K', ':lua vim.lsp.buf.hover()<cr>')
+nkeymap('<C-k>', ':lua vim.lsp.buf.signature_help()<cr>')
+nkeymap('<leader>ca', ':lua vim.lsp.buf.code_action()<cr>')
+nkeymap('<leader>crn', ':lua vim.lsp.buf.rename()<cr>')
+
+-- Undo Tree
+vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+
+-- Harpoon
+local harpMark = require("harpoon.mark")
+local harpUi = require("harpoon.ui")
+local harpTerm = require("harpoon.term")
+
+vim.keymap.set('n', '<leader>ha', harpMark.add_file, {})
+vim.keymap.set('n', '<leader>ht', harpUi.toggle_quick_menu, {})
+vim.keymap.set('n', '<C-f>', harpUi.nav_next, {})
+vim.keymap.set('n', '<C-e>', harpUi.nav_prev, {})
+
+-- Nvim Tree
+local nvapi = require("nvim-tree.api")
+vim.keymap.set("n", "<leader>tt", nvapi.tree.toggle)
+vim.keymap.set("n", "<C-o>", nvapi.tree.change_root_to_node)
+
+-- Telescope
+local tele = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', tele.find_files, {})
+vim.keymap.set('n', '<C-p>', tele.git_files, {})
+vim.keymap.set('n', '<leader>ps', function()
+	tele.grep_string({ search = vim.fn.input("Grep > ") })
+end)

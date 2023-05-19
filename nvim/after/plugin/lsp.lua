@@ -1,7 +1,8 @@
 local lsp = require('lsp-zero').preset({})
 
 lsp.ensure_installed({
-	'rust_analyzer'
+	'rust_analyzer',
+    'clangd'
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -9,3 +10,4 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+

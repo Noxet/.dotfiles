@@ -19,9 +19,6 @@ require("nvim-tree").setup({
 	},
 })
 
-local api = require("nvim-tree.api")
-vim.keymap.set("n", "<leader>tt", api.tree.toggle)
-vim.keymap.set("n", "<C-o>", api.tree.change_root_to_node)
 
 --vim.keymap.set("n", "<leader>fc", api.fs.create)
 --vim.keymap.set("n", "<leader>fd", api.fs.remove)
