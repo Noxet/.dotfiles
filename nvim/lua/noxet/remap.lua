@@ -18,14 +18,9 @@ vim.keymap.set("n", "Q", "<nop>")
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
 
--- C-f is used by harpoon
---vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-vim.keymap.set("n", "<leader>fo", function()
-    vim.lsp.buf.format()
-end)
-
 
 -- LSP
+-- Most of these are set by default by lsp-zero
 local function nkeymap(k, map)
     vim.api.nvim_set_keymap('n', k, map, { noremap = true })
 end
@@ -41,24 +36,32 @@ nkeymap('K', ':lua vim.lsp.buf.hover()<cr>')
 nkeymap('<C-k>', ':lua vim.lsp.buf.signature_help()<cr>')
 nkeymap('<leader>ca', ':lua vim.lsp.buf.code_action()<cr>')
 nkeymap('<leader>crn', ':lua vim.lsp.buf.rename()<cr>')
+nkeymap('<leader>cfo', ':lua vim.lsp.buf.format()<cr>')
+
+-- Default maps from lsp-zero
+-- <F2>: rename symbol under cursor (same as <leader>crn)
+-- <F3>: format file (same as <leader>cfo)
+-- <F4>: open code actions (same as <leader>ca)
 
 -- Undo Tree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
+
 
 -- Harpoon
 local harpMark = require("harpoon.mark")
 local harpUi = require("harpoon.ui")
 local harpTerm = require("harpoon.term")
-
 vim.keymap.set('n', '<leader>ha', harpMark.add_file, {})
 vim.keymap.set('n', '<leader>ht', harpUi.toggle_quick_menu, {})
 vim.keymap.set('n', '<C-f>', harpUi.nav_next, {})
 vim.keymap.set('n', '<C-e>', harpUi.nav_prev, {})
 
+
 -- Nvim Tree
 local nvapi = require("nvim-tree.api")
 vim.keymap.set("n", "<leader>tt", nvapi.tree.toggle)
 vim.keymap.set("n", "<C-o>", nvapi.tree.change_root_to_node)
+
 
 -- Telescope
 local tele = require('telescope.builtin')

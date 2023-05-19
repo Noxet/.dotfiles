@@ -52,4 +52,16 @@ return require('packer').startup(function(use)
 
     use 'ThePrimeagen/harpoon'
 
+
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+            require("which-key").setup {
+                -- custom config goes here, see #configuration on github
+            }
+        end
+    }
+
 end)
