@@ -38,6 +38,7 @@ return require('packer').startup(function(use)
 		}
 	}
 
+    -- Extra stuff for rust, like code actions 
 	use 'simrat39/rust-tools.nvim'
 
 	use {
@@ -53,6 +54,7 @@ return require('packer').startup(function(use)
     use 'ThePrimeagen/harpoon'
 
 
+    -- Shows possible commands and sub-commands while typing
     use {
         "folke/which-key.nvim",
         config = function()
@@ -62,6 +64,22 @@ return require('packer').startup(function(use)
                 -- custom config goes here, see #configuration on github
             }
         end
+    }
+
+    -- Replacement for the standard "UI" when searching, commands etc
+    use {
+        "folke/noice.nvim",
+        config = function()
+            require("noice").setup()
+        end,
+        requires = {
+            -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+            "MunifTanjim/nui.nvim",
+            -- OPTIONAL:
+            --   `nvim-notify` is only needed, if you want to use the notification view.
+            --   If not available, we use `mini` as the fallback
+            "rcarriga/nvim-notify",
+        }
     }
 
 end)
