@@ -60,7 +60,7 @@ vim.keymap.set('n', '<C-e>', harpUi.nav_prev, {})
 -- Nvim Tree
 local nvapi = require("nvim-tree.api")
 vim.keymap.set("n", "<leader>t", nvapi.tree.toggle)
-vim.keymap.set("n", "<C-o>", nvapi.tree.change_root_to_node)
+vim.keymap.set("n", "<leader>o", nvapi.tree.change_root_to_node)
 
 
 -- Telescope
