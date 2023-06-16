@@ -230,11 +230,13 @@ bindsym $mod+l exec --no-startup-id i3lock -ti /home/noxet/Pictures/bsod.png
 # ------------------------
 
 # set mouse cursor speed (touchpad ID: 13, Accel speed ID: 345)
-exec xinput set-prop 13 345 0.7
+exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Accel Speed" 0.7
 # enable touchpad tapping to "click"
-exec xinput set-prop 13 325 1
+exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Tapping Enabled" 1
+# turn of natural scrolling
+exec --no-startup-id xinput set-prop "SynPS/2 Synaptics TouchPad" "libinput Natural Scrolling Enabled" 0
 # set key repeat delay and rate (300ms delay, 30Hz repeat rate)
-exec xset r rate 300 30
+exec --no-startup-id xset r rate 300 30
 
 # swap ctrl and caps
-exec setxkbmap -option ctrl:swapcaps
+exec --no-startup-id setxkbmap -option ctrl:swapcaps
