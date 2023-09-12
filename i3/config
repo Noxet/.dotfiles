@@ -48,6 +48,7 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
+# screenshot selection
 bindsym --release $mod+p exec scrot -s
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
