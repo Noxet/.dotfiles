@@ -66,6 +66,7 @@ vim.keymap.set("n", "<leader>o", nvapi.tree.change_root_to_node)
 -- Telescope
 local tele = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', tele.find_files, {})
+vim.keymap.set('n', '<leader>fr', tele.lsp_references, {})
 vim.keymap.set('n', '<C-p>', tele.git_files, {})
 vim.keymap.set('n', '<leader>ps', function()
 	tele.grep_string({ search = vim.fn.input("Grep > ") })
