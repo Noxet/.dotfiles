@@ -38,6 +38,8 @@ return require('packer').startup(function(use)
 		}
 	}
 
+    use 'github/copilot.vim'
+
     -- Extra stuff for rust, like code actions 
 	use 'simrat39/rust-tools.nvim'
 
