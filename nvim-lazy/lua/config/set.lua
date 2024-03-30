@@ -12,8 +12,8 @@ set.smartindent = true
 set.wrap = false
 
 -- permanent undo history
-set.undodir = os.getenv("HOME") .. "/.vim/undodir"
-set.undofile = true
+--set.undodir = os.getenv("HOME") .. "/.vim/undodir"
+set.undofile = false
 
 -- highlight all search matches
 set.hlsearch = true
