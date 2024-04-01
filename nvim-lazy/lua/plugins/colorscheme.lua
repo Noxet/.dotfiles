@@ -9,7 +9,7 @@ return {
             --vim.cmd("colorscheme rose-pine")
         end,
     },
-    
+
     {
         "folke/tokyonight.nvim",
         lazy = false,
