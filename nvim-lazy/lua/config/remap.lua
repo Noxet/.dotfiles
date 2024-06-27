@@ -66,6 +66,7 @@ vim.keymap.set('n', '<leader>fr', tele.lsp_references, { desc = "Find references
 vim.keymap.set('n', '<leader>fg', tele.live_grep, { desc = "Grep search" })
 vim.keymap.set('n', '<leader>fsf', function() tele.lsp_document_symbols({ symbols = 'function' }) end, { desc = "Find symbols function" })
 vim.keymap.set('n', '<leader>fsa', tele.lsp_document_symbols, { desc = "Find symbols all" })
+vim.keymap.set('n', '<leader>fd', tele.diagnostics, { desc = "Find diagnostics info" })
 --vim.keymap.set('n', '<leader>fsv', tele.live_grep, { desc = "Find symbols variables" })
 
 -- Substitute
