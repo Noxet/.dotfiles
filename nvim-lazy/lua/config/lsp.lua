@@ -10,6 +10,19 @@ require('mason-lspconfig').setup({
   },
 })
 
+-- For managing cross compilers and correct include paths with clangd
+-- see here: https://www.reddit.com/r/avr/comments/1c3080u/comment/kzfnj29/
+-- TODO: add support for multiple cross compilers, where we select which one using a local .clangd file in the project
+local handle = io.popen("which arm-none-eabi-gcc")
+local arm_gcc
+if handle then
+	arm_gcc = handle:read("*a"):sub(1, -2)
+	handle:close()
+else
+	arm_gcc = nil;
+end
+
+
 local lspconfig = require('lspconfig')
 
 lspconfig.lua_ls.setup {
@@ -37,4 +50,8 @@ lspconfig.lua_ls.setup {
       },
     },
   },
+}
+
+lspconfig.clangd.setup {
+    cmd = { vim.fn.stdpath("data") .. "/mason/bin/clangd", arm_gcc and "--query-driver=" .. arm_gcc },
 }

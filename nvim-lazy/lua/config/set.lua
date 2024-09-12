@@ -30,6 +30,8 @@ set.updatetime = 50
 
 set.colorcolumn = "120"
 
+set.listchars = {tab = '> ',trail = '+',nbsp = '-'}
+set.list = true
 
 -- auto close vim if nvim-tree is the only one left.
 -- confirm if there are unsaved files, so we don't loose them.
