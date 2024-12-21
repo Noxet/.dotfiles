@@ -1,5 +1,11 @@
-theme = "solarized-dark"
+theme = "adwaita-dark"
 
 [editor]
-line-number = "relative"
 true-color = true
+line-number = "relative"
+
+[editor.cursor-shape]
+insert = "bar"
+
+[keys.insert]
+"C-c" = "normal_mode"
