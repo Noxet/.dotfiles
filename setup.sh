@@ -1,11 +1,11 @@
-set -ex
+set -e
 
 
 install_zsh()
 {
 	echo "Installing zsh, fzf, Oh my zsh..."
-	! type zsh && sudo apt-get install -y zsh
-	! type fzf && sudo apt-get install fzf
+	! type zsh > /dev/null && sudo apt-get install -y zsh
+	! type fzf > /dev/null && sudo apt-get install fzf
 	[ ! -d ~/.oh-my-zsh ] && sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	echo "Done"
 
@@ -18,7 +18,11 @@ install_zsh()
 install_tmux()
 {
 	echo "Installing tmux..."
-	! type tmux && sudo apt-get -y install tmux
+	! type tmux > /dev/null && sudo apt-get -y install tmux
+	echo "Done"
+
+	echo "Copying tmux config..."
+	cp tmux/.tmux.conf ~/
 	echo "Done"
 }
 
@@ -39,7 +43,7 @@ install_helix()
 	echo "Done"
 
 	echo "Setting up lsp..."
-	sudo apt-get -y install clangd
+	! type clangd > /dev/null && sudo apt-get -y install clangd
 	echo "Done"
 }
 
