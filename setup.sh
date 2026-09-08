@@ -31,13 +31,15 @@ install_helix()
 	if ! type hx
 	then
 		echo "Installing helix..."
-		sudo add-apt-repository ppa:maveonair/helix-editor
-		sudo apt update
-		sudo apt install helix
+		# Since Ubuntu 26 we shall no longer add custom PPA
+		# sudo add-apt-repository ppa:maveonair/helix-editor
+		# sudo apt update
+		sudo apt install hx
 		echo "Done"
 	fi
 	
 	echo "Copying helix config..."
+	mkdir -p ~/.config/helix
 	cp helix/config.toml ~/.config/helix
 	cp helix/languages.toml ~/.config/helix
 	echo "Done"
